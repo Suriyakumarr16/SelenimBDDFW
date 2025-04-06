@@ -1,0 +1,17 @@
+""2025-04-06 14:32:17 [main] WARN  org.testng.xml.TestNGContentHandler - It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >" at the top of the suite file [C:\Users\Modern\eclipse-workspace\SeleniumBDDFW\src\test\resources\testng.xml] otherwise TestNG may fail or not work as expected.
+""2025-04-06 14:32:18 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\Modern\eclipse-workspace\SeleniumBDDFW\src\test\resources\testng.xml
+
+""2025-04-06 14:32:21 [TestNG-test-Booking.com Tests-1] INFO  io.github.bonigarcia.wdm.cache.ResolutionCache - Clearing WebDriverManager resolution cache
+""2025-04-06 14:32:26 [TestNG-test-Booking.com Tests-1] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 134.0.6998.165 (resolved driver for Chrome 134)
+""2025-04-06 14:32:26 [TestNG-test-Booking.com Tests-1] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\Modern\.cache\selenium\chromedriver\win64\134.0.6998.165\chromedriver.exe
+""2025-04-06 14:32:26 [TestNG-test-Booking.com Tests-1] INFO  io.github.bonigarcia.wdm.online.Downloader - Downloading https://storage.googleapis.com/chrome-for-testing-public/134.0.6940.0/win64/chromedriver-win64.zip
+""2025-04-06 14:32:27 [TestNG-test-Booking.com Tests-1] ERROR io.github.bonigarcia.wdm.online.HttpClient - Error HTTP 404 executing https://storage.googleapis.com/chrome-for-testing-public/134.0.6940.0/win64/chromedriver-win64.zip
+""2025-04-06 14:32:27 [TestNG-test-Booking.com Tests-1] WARN  io.github.bonigarcia.wdm.WebDriverManager - There was an error managing chromedriver 134.0.6940.0 (Error HTTP 404 executing https://storage.googleapis.com/chrome-for-testing-public/134.0.6940.0/win64/chromedriver-win64.zip) ... trying again using latest driver stored in cache
+""2025-04-06 14:32:28 [TestNG-test-Booking.com Tests-1] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 134.0.6998.165 (resolved driver for Chrome 134)
+""2025-04-06 14:32:28 [TestNG-test-Booking.com Tests-1] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\Modern\.cache\selenium\chromedriver\win64\134.0.6998.165\chromedriver.exe
+""2025-04-06 14:32:34 [TestNG-test-Booking.com Tests-1] INFO  com.booking.com.utilities.Report - Driver Instantiated : Chrome
+""2025-04-06 14:32:34 [TestNG-test-Booking.com Tests-1] INFO  com.booking.com.utilities.Report - Launching the Base URL
+""2025-04-06 14:33:08 [TestNG-test-Booking.com Tests-1] INFO  com.booking.com.utilities.Report - Validation of Base URL Landing Page
+""2025-04-06 14:33:10 [TestNG-test-Booking.com Tests-1] INFO  com.booking.com.utilities.Report - Driver to be quit
+"
