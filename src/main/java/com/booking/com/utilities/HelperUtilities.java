@@ -1,14 +1,20 @@
 package com.booking.com.utilities;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
+import com.booking.com.base.TestBase;
 import com.booking.com.drivers.DriverManager;
 
 public class HelperUtilities {
@@ -38,6 +44,29 @@ public class HelperUtilities {
 		WebDriver driver = DriverManager.getDriver();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
+	
+	public static void takeScreenshot() {
+		File screenshot = ((TakesScreenshot)DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(screenshot, new File("screenshots/"+TestBase.getScenarioName()+".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void highlightElement(WebElement element)
+	{
+		JavascriptExecutor js = (JavascriptExecutor)DriverManager.getDriver();
+		String OriginalStyle = element.getDomAttribute("style");
+		js.executeScript("arguments[0].setAttribute('style',arguments[1]);", element,"border: 1px solid red; background: red;" + OriginalStyle);
+		
+		js.executeScript(
+		        "arguments[0].setAttribute('style', arguments[1]);", 
+		        element, 
+		        OriginalStyle
+		    );
+		
 	}
 
 }
