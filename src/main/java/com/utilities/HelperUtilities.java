@@ -1,4 +1,4 @@
-package com.booking.com.utilities;
+package com.utilities;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.booking.com.base.TestBase;
-import com.booking.com.drivers.DriverManager;
+import com.base.TestBase;
+import com.drivers.DriverManager;
 
 public class HelperUtilities {
 	

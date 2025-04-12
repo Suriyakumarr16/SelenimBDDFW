@@ -1,4 +1,4 @@
-package com.booking.com.drivers;
+package com.drivers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,12 +8,13 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import com.booking.com.utilities.ConfigurationBase;
-import com.booking.com.utilities.Report;
+import com.aventstack.extentreports.Status;
+import com.base.TestBase;
+import com.utilities.ConfigurationBase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class DriverManager {
+public class DriverManager extends TestBase {
 	
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	
@@ -27,7 +28,7 @@ public class DriverManager {
 			chromeOptions.addArguments("--start-maximized");
 			chromeOptions.addArguments("--disable-gpu");
 			driver.set(new ChromeDriver(chromeOptions));
-			Report.log("Driver Instantiated : Chrome");
+			Reporter.log(Status.INFO,"Driver Instantiated : Chrome");
 			break;
 
 		case "firefox":
@@ -36,7 +37,7 @@ public class DriverManager {
 			firefoxOptions.addArguments("--start-maximized");
 			firefoxOptions.addArguments("--disable-gpu");
 			driver.set(new FirefoxDriver(firefoxOptions));
-			Report.log("Driver Instantiated : FireFox");
+			Reporter.log(Status.INFO,"Driver Instantiated : FireFox");
 			break;
 			
 		case "edge":
@@ -45,7 +46,7 @@ public class DriverManager {
 			edgeOptions.addArguments("--start-maximized");
 			edgeOptions.addArguments("--disable-gpu");
 			driver.set(new EdgeDriver(edgeOptions));
-			Report.log("Driver Instantiated : Edge");
+			Reporter.log(Status.INFO,"Driver Instantiated : Edge");
 			break;
 		}
 	}
@@ -57,7 +58,7 @@ public class DriverManager {
     public static void quitBrowser() {
         WebDriver driverInstance = driver.get();
         if (driverInstance != null) {
-        	Report.log("Driver to be quit");
+        	Reporter.log(Status.INFO,"Driver to be quit");
             driverInstance.quit();
             driver.remove();
         }
