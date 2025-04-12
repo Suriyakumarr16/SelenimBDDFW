@@ -1,4 +1,4 @@
-package com.booking.com.utilities;
+package com.utilities;
 
 import java.io.IOException;
 import java.util.Properties;

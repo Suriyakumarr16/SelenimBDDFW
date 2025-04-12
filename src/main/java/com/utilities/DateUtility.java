@@ -1,4 +1,4 @@
-package com.booking.com.utilities;
+package com.utilities;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,17 +1,18 @@
-package com.booking.com.base;
+package com.base;
 
-
-import com.booking.com.drivers.DriverManager;
-import com.booking.com.utilities.ConfigurationBase;
+import com.drivers.DriverManager;
+import com.utilities.ConfigurationBase;
+import com.utilities.Report;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class TestBase {
+public class TestBase extends Report {
 	
-	public static String scenarioName;
+	private static String scenarioName;
 	ConfigurationBase config = new ConfigurationBase();
+	
 	
 	public static String getScenarioName()
 	{
@@ -20,8 +21,9 @@ public class TestBase {
 	
 	@Before
 	public void setup(Scenario scenario) {
-		scenarioName = scenario.getName();
 		config.loadProperties();
+		scenarioName = scenario.getName();
+		Reporter = extent.createTest(scenarioName);
 		
 		if(DriverManager.getDriver()==null) {
          DriverManager.launchBrowser();
@@ -33,6 +35,7 @@ public class TestBase {
 		if (DriverManager.getDriver() != null) {
 			DriverManager.quitBrowser();
 		}
+		extent.flush();
 	}
 
 }

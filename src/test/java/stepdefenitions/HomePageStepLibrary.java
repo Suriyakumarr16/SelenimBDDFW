@@ -4,26 +4,30 @@ package stepdefenitions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.booking.com.drivers.DriverManager;
-import com.booking.com.pages.WebHomePage;
-import com.booking.com.utilities.ConfigurationBase;
-import com.booking.com.utilities.DateUtility;
-import com.booking.com.utilities.HelperUtilities;
-import com.booking.com.utilities.Report;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.base.TestBase;
+import com.drivers.DriverManager;
+import com.pages.WebHomePage;
+import com.utilities.ConfigurationBase;
+import com.utilities.DateUtility;
+import com.utilities.HelperUtilities;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class HomePageStepLibrary {
+public class HomePageStepLibrary  {
 
 	private WebDriver driver = DriverManager.getDriver();
 	private WebHomePage	homepage = new WebHomePage(driver);
+	ExtentTest Reporter = TestBase.Reporter;
+	
 	  
 	
 	@Given("User launches Booking.com application")
 	public void user_launches_booking_com_application() {
-		Report.log("Launching the Base URL");
+		Reporter.log(Status.INFO,"Launching the Base URL");
 		String baseurl = ConfigurationBase.getProperty("env.url");
 		driver.get(baseurl);
 	}
@@ -32,7 +36,7 @@ public class HomePageStepLibrary {
 	public void user_navigates_to_booking_com_homepage() {
 		String actualurl = driver.getCurrentUrl();
 		String expectedurl = "booking.com/";
-		Report.log("Validation of Base URL Landing Page");
+		Reporter.log(Status.PASS,"Validation of Base URL Landing Page");
 		Assert.assertEquals(actualurl.contains(expectedurl), true);
 		HelperUtilities.waitForPageToLoad();
 	}
@@ -71,7 +75,7 @@ public class HomePageStepLibrary {
 	public void user_selects_check_in_and_check_out_date_in_datepicker_homepage(String CheckInDate, String CheckOutDate) {
 		String checkindate = DateUtility.getDate(Integer.parseInt(CheckInDate));
 		String checkoutdate = DateUtility.getDate(Integer.parseInt(CheckOutDate));
-		Report.log("User enters checkin and checkout date as :" + checkindate + " " +"&" +" " + checkoutdate);
+		Reporter.log(Status.INFO,"User enters checkin and checkout date as :" + checkindate + " " +"&" +" " + checkoutdate);
 		HelperUtilities.highlightElement(homepage.getCheckInDate(checkindate));
 		homepage.getCheckInDate(checkindate).click();
 		HelperUtilities.highlightElement(homepage.getCheckOutDate(checkoutdate));

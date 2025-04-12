@@ -3,9 +3,9 @@ package stepdefenitions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.booking.com.drivers.DriverManager;
-import com.booking.com.pages.WebSearchResultsPage;
-import com.booking.com.utilities.HelperUtilities;
+import com.drivers.DriverManager;
+import com.pages.WebSearchResultsPage;
+import com.utilities.HelperUtilities;
 
 import io.cucumber.java.en.Then;
 
