@@ -58,10 +58,12 @@ public class HomePageStepLibrary {
 	
 	@When("User enters Destination {string} in Destination Field Homepage")
 	public void user_enters_destination_in_destination_field_homepage(String Destination) throws InterruptedException {
+		HelperUtilities.highlightElement(homepage.getDestinationField());
 		homepage.getDestinationField().clear();
 		homepage.getDestinationField().sendKeys(Destination);
 		HelperUtilities.waitForElemenToBeClickable(homepage.getSuggestedDestinationDropdown());
 		HelperUtilities.waitForVisible(homepage.getSearchedDestinationFromDropdown(Destination));
+		HelperUtilities.highlightElement(homepage.getSearchedDestinationFromDropdown(Destination));
 		homepage.getSearchedDestinationFromDropdown(Destination).click();
 	}
 	
@@ -70,22 +72,28 @@ public class HomePageStepLibrary {
 		String checkindate = DateUtility.getDate(Integer.parseInt(CheckInDate));
 		String checkoutdate = DateUtility.getDate(Integer.parseInt(CheckOutDate));
 		Report.log("User enters checkin and checkout date as :" + checkindate + " " +"&" +" " + checkoutdate);
+		HelperUtilities.highlightElement(homepage.getCheckInDate(checkindate));
 		homepage.getCheckInDate(checkindate).click();
+		HelperUtilities.highlightElement(homepage.getCheckOutDate(checkoutdate));
 		homepage.getCheckOutDate(checkoutdate).click();
 	}
 
 	@When("User selects the guest count as {int} adults in Homepage")
 	public void user_selects_the_guest_count_as_adults_in_homepage(int Adults) {
+		HelperUtilities.highlightElement(homepage.getRoomsGuestsDropdownButton());
 		homepage.getRoomsGuestsDropdownButton().click();
 		HelperUtilities.waitForVisible(homepage.getAdultsPlusButton());
 		for(int i=2;i<Adults;i++) {
+		HelperUtilities.highlightElement(homepage.getAdultsPlusButton());
 		homepage.getAdultsPlusButton().click();
 		}
+		HelperUtilities.highlightElement(homepage.getRoomsGuestsDropdownDoneButton());
 		homepage.getRoomsGuestsDropdownDoneButton().click();
 	}
 
 	@When("User clicks on Search CTA")
 	public void user_clicks_on_search_cta() {
+		HelperUtilities.highlightElement(homepage.getSearchButton());
 		homepage.getSearchButton().click();
 	}
 }
