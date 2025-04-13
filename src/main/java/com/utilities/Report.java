@@ -6,8 +6,8 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class Report {
 	
-	protected static ExtentSparkReporter sparkReporter;
-	protected static ExtentReports extent;
+	public static ExtentSparkReporter sparkReporter;
+	public static ExtentReports extent;
 	public static ExtentTest Reporter;
 	
 	static {

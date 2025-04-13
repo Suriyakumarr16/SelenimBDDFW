@@ -1,4 +1,7 @@
 <suite name="Booking.com Suite" verbose="1" parallel="classes" thread-count="2">
+<listeners>
+    <listener class-name="com.listeners.TestNGListener"/>
+</listeners>
 	<test name="Booking.com Tests">
 		<classes>
 			<class name="runner.TestRunner" />
