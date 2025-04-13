@@ -14,7 +14,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.base.TestBase;
 import com.drivers.DriverManager;
 
 public class HelperUtilities {
@@ -46,10 +45,10 @@ public class HelperUtilities {
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 	}
 	
-	public static void takeScreenshot() {
+	public static void takeScreenshot(String TestName) {
 		File screenshot = ((TakesScreenshot)DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(screenshot, new File("screenshots/"+TestBase.getScenarioName()+".png"));
+			FileUtils.copyFile(screenshot, new File("screenshots/"+TestName+".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

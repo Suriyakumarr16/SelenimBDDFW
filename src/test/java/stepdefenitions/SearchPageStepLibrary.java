@@ -24,10 +24,6 @@ public class SearchPageStepLibrary {
 
 	@Then("Destination {string} is displayed in Search Results Page")
 	public void destination_is_displayed_in_search_results_page(String DestinationInSearchResults) {
-		try {
 			searchpage.getDestinationReturnedText(DestinationInSearchResults).isDisplayed();
-		} catch (Exception e) {
-			HelperUtilities.takeScreenshot();
-		}
 	}
 }

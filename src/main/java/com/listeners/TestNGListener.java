@@ -10,6 +10,7 @@ import io.cucumber.testng.PickleWrapper;
 import com.aventstack.extentreports.Status;
 import com.base.TestBase;
 import com.utilities.ConfigurationBase;
+import com.utilities.HelperUtilities;
 
 public class TestNGListener extends TestBase implements ITestListener,ISuiteListener {
 	private static ThreadLocal<String> scenarioName = new ThreadLocal<>();
@@ -33,18 +34,24 @@ public class TestNGListener extends TestBase implements ITestListener,ISuiteList
 	
 	public void onTestFailure(ITestResult result)
 	{
+		String scenarioname = scenarioName.get();
+		HelperUtilities.takeScreenshot(scenarioname);
 		Reporter.log(Status.FAIL,"Test has failed: "+ scenarioName.get());
 		tearDown();
 	}
 	
 	public void onTestSkipped(ITestResult result)
 	{
+		String scenarioname = scenarioName.get();
+		HelperUtilities.takeScreenshot(scenarioname);
 		Reporter.log(Status.WARNING,"Test has skipped: "+ scenarioName.get());
 		tearDown();
 	}
 	
 	public void onTestFailedButWithinSucessPercentage(ITestResult result)
 	{
+		String scenarioname = scenarioName.get();
+		HelperUtilities.takeScreenshot(scenarioname);
 		Reporter.log(Status.FAIL,"Test has failed, but within success percentage: "+ scenarioName.get());
 		tearDown();
 	}
